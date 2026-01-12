@@ -5,4 +5,4 @@ if [ -z "$VIRTUAL_ENV" ]; then
   exit 1
 fi
 
-mkdocks server --livereload
+mkdocs serve --livereload

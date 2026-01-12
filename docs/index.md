@@ -1,2 +1,2 @@
 # Welcome to skycat's fabric stuff
-## Were I put fabric stuff
+## Where I put fabric stuff
