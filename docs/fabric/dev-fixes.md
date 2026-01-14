@@ -47,3 +47,7 @@ org.gradle.configuration-cache=false
 ```
 
 (yes, that's it)
+
+## `IllegalClassLoadError: good.testmod.mixin.TestModClient is in a defined mixin package...`
+
+Non-mixin classes (like `TestModClient` presumably is) can't be in your mixin package.

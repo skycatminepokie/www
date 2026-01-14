@@ -47,12 +47,11 @@ style = "dash"  # Unordered list style (asterisk, plus, dash, consistent)
 # indent = 4  # Unordered list indentation
 
 [MD013]
-line-length = 120  # Line length
-code-blocks = true  # Exclude code blocks from line length check
-reflow = true
-reflow-mode = "normalize"
-tables = false  # Exclude tables from line length check
-headings = true  # Include headings in line length check
+line-length = 120
+code-blocks = false
+reflow = true # autofix
+tables = false
+headings = false
 
 # [MD044]
 # names = ["rumdl", "Markdown", "GitHub"]  # Proper names that should be capitalized correctly
