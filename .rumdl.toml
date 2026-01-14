@@ -10,7 +10,7 @@
 
 # List of file/directory patterns to include for linting (if provided, only these will be linted)
  include = [
-    "docs/*.md",
+    "docs/**/*.md",
     "README.md"
 ]
 
@@ -49,6 +49,8 @@ style = "dash"  # Unordered list style (asterisk, plus, dash, consistent)
 [MD013]
 line-length = 120  # Line length
 code-blocks = true  # Exclude code blocks from line length check
+reflow = true
+reflow-mode = "normalize"
 tables = false  # Exclude tables from line length check
 headings = true  # Include headings in line length check
 
