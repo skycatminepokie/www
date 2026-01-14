@@ -1,4 +1,13 @@
 site_name: Skycat's stuff
 site_url: https://www.skycatdev.com/
+site_author: skycatminepokie
 theme:
     name: dracula
+    favicon: assets/icon.ico
+markdown_extensions:
+    - admonition
+    - toc:
+        title: "On this page:"
+        toc_depth: 2-6
+extra_css:
+    - css/toc.css

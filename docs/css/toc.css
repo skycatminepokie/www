@@ -1,0 +1,6 @@
+.toc {
+    ul {
+        list-style-type: "- ";
+    }
+    padding: 1rem 1rem 0;
+}
