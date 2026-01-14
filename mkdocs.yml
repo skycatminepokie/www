@@ -4,6 +4,8 @@ site_author: skycatminepokie
 theme:
     name: dracula
     favicon: assets/icon.ico
+not_in_nav:
+    secret/*
 markdown_extensions:
     - admonition
     - toc:
