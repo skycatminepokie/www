@@ -1,0 +1,9 @@
+when:
+  - event: push
+    branch: main
+
+steps:
+  - name: Build
+    image: woodpeckerci/plugin-mkdocs:latest
+    settings:
+      pip_install_file: requirements.txt

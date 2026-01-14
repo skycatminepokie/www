@@ -8,3 +8,7 @@ It's not polished, and that's by design - polish takes work to upkeep.
 
 1. Activate venv (I'm actually just using PyCharm)
 2. `source ./preview.sh`
+
+## TODO
+
+1. Publish stuff
