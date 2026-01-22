@@ -40,7 +40,8 @@ To regenerate them:
 
 ## `registration of listener on 'Gradle.addListener' is unsupported`
 
-It's not your fault! See [fabric-loom#1349](https://github.com/FabricMC/fabric-loom/issues/1349). To fix it, add this to your `gradle.properties`:
+It's not your fault! See [fabric-loom#1349](https://github.com/FabricMC/fabric-loom/issues/1349). To fix it, add this to
+your `gradle.properties`:
 
 ```properties
 org.gradle.configuration-cache=false
@@ -51,3 +52,9 @@ org.gradle.configuration-cache=false
 ## `IllegalClassLoadError: good.testmod.mixin.TestModClient is in a defined mixin package...`
 
 Non-mixin classes (like `TestModClient` presumably is) can't be in your mixin package.
+
+## `AccessWidenerFormatException: Invalid access widener file header. Expected: 'accessWidener <version> <namespace>`
+
+Fix your access widener. If you don't have one, update Fabric Loader to >=0.18.0 - you likely have a dependency that
+uses classtweakers, but doesn't correctly declare that it needs Loader 0.18.0+ (something in Fabric API does/did this
+for a while).
