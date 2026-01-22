@@ -53,7 +53,7 @@ org.gradle.configuration-cache=false
 
 Non-mixin classes (like `TestModClient` presumably is) can't be in your mixin package.
 
-## `AccessWidenerFormatException: Invalid access widener file header. Expected: 'accessWidener <version> <namespace>`
+## `AccessWidenerFormatException: Invalid access widener file header. Expected: 'accessWidener <version> <namespace>'`
 
 Fix your access widener. If you don't have one, update Fabric Loader to >=0.18.0 - you likely have a dependency that
 uses classtweakers, but doesn't correctly declare that it needs Loader 0.18.0+ (something in Fabric API does/did this
