@@ -163,7 +163,7 @@ crashes where all dependencies are met (meaning you've installed all the mods th
 2. Relevant error types. This one is more for the technical. In this case, I happen to know that a
    `BufferOverflowException` is caused by something messing very close to memory, such as an optimization mod or
    something that messes with rendering or hardware.
-3. `mixinextras...warpOperation` = less likely. This is used by mods that are trying to be careful about what they
+3. `mixinextras...wrapOperation` = less likely. This is used by mods that are trying to be careful about what they
    change, but it will show up in the logs a lot because of how it works, even if the mod doesn't choose to change
    anything this time around.
 4. It's probably not Fabric API. Fabric API does have bugs, but they're usually fixed quickly. Most of Fabric API is
