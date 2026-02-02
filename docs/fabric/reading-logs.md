@@ -175,3 +175,30 @@ In our example, we've got quite a bit to work with. Right before crashing, we se
 Minecraft knows it has crashed! That's pretty helpful. We know it was `Rendering screen`, and that the error was
 `Caused by: java.nio.BufferOverflowException`. Just three lines down, we see `at com.mr_toad.gpu_booster.api.util...`.
 Looks like GPU Booster is probably the cause. The user removed GPU Booster from their mods, and now the game works!
+
+## Now the error has changed
+
+Don't fret! That's a good thing. That almost always means that **you've fixed a problem with your modpack**! Now you do
+it again. If it doesn't change, then you probably didn't guess the right mod.
+
+## What if I don't see my error listed here?
+
+This is where you'll need to apply some intuition and guesswork. Below are a few common cases and the most common fixes.
+Ask for help if you need it! `#player-support` in [The Fabric Project](https://discord.gg/v6v4pMv) Discord is a great
+place to start.
+
+### `Failed to load registries due to above errors`
+
+This is usually a problem with datapacks OR a mod that has a datapack inside it (most mods do!). Chances are, you're
+seeing this in a crash report - take a look at the latest.log if you haven't already. You're looking for a line like
+this:
+
+```text
+java.lang.IllegalStateException: Failed to parse cobbleverse:worldgen/structure/blaine.json from pack COBBLEVERSE-DP-v26.zip
+```
+
+In this case, we can see that the datapack " `COBBLEVERSE-DP-v26.zip`" is causing the crash. Most of the Cobblemon
+datapack issues that I see are because the datapack doesn't support the current version of Cobblemon. Removing the
+datapack fixes this issue.
+
+Sometimes you'll see "`...from pack modid`". That means it's from a datapack inside a mod with the id "modid".
