@@ -58,3 +58,27 @@ Non-mixin classes (like `TestModClient` presumably is) can't be in your mixin pa
 Fix your access widener. If you don't have one, update Fabric Loader to >=0.18.0 - you likely have a dependency that
 uses classtweakers, but doesn't correctly declare that it needs Loader 0.18.0+ (something in Fabric API does/did this
 for a while).
+
+## `StackOverflowError` from a vanilla method recursing infinitely, but it doesn't call itself
+
+Most likely, there's a mixin involved, but you'll see that in the stacktrace. But what if...
+
+```text
+java.lang.StackOverflowError: Exception in server tick loop
+	at knot//net.minecraft.world.entity.LivingEntity.dropAllDeathLoot(LivingEntity.java)
+	at knot//net.minecraft.world.entity.LivingEntity.dropAllDeathLoot(LivingEntity.java)
+	at knot//net.minecraft.world.entity.LivingEntity.dropAllDeathLoot(LivingEntity.java)
+	at knot//net.minecraft.world.entity.LivingEntity.dropAllDeathLoot(LivingEntity.java)
+	... (repeat 1020 more times)
+```
+
+Look for an `@Invoker`. If it's named the same, change the invoker's name.
+
+```diff
+@Mixin(LivingEntity.class)
+public interface LivingEntityAccess {
+    @Invoker("dropAllDeathLoot")
+-   void dropAllDeathLoot( ServerLevel serverLevel, DamageSource damageSource);
++   void invokeDropAllDeathLoot(ServerLevel serverLevel, DamageSource damageSource);
+}
+```
