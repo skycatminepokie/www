@@ -61,7 +61,7 @@ for a while).
 
 ## `StackOverflowError` from a vanilla method recursing infinitely, but it doesn't call itself
 
-Most likely, there's a mixin involved, but you'll see that in the stacktrace. But what if...
+Most likely, there's a mixin involved, and you'll see that in the stacktrace. But what if...
 
 ```text
 java.lang.StackOverflowError: Exception in server tick loop
