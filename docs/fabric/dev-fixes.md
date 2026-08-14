@@ -82,3 +82,39 @@ public interface LivingEntityAccess {
 +   void invokeDropAllDeathLoot(ServerLevel serverLevel, DamageSource damageSource);
 }
 ```
+
+## A `Codec<Pair<Thing, Something>>` I made isn't working
+
+Here's the sample:
+
+```java
+Codec.pair(Codecs.UUID, Codec.INT).encode(Pair.of(UUID.randomUUID(), 1), NbtOps.INSTANCE, NbtOps.INSTANCE.empty());
+```
+
+Error:
+
+```text
+Do not know how to append a primitive value [I;-1146627965,1080115418,-1840797042,45047876] to 1
+```
+
+The key part there is "a primitive value" - this is trying to serialize as
+
+```json
+[-1146627965,1080115418,-1840797042,45047876]: 1
+```
+
+which is not valid JSON - an array can't be a value. You can get around this by changing the structure:
+
+```java
+Codec.pair(Codecs.UUID.fieldOf("UUID").codec(), Codec.INT.fieldOf("int").codec());
+```
+
+```json
+{
+  "UUID": [-1146627965,1080115418,-1840797042,45047876],
+  "int": 1
+}
+```
+
+This kind of issue ("that can't be a key, silly") can be caused other ways too (like maps with keys that don't serialize
+as a string).
